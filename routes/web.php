@@ -16,3 +16,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/fibers', function() {
+    dispatch(new \App\Jobs\FiberJob());
+
+    return null;
+});
+
+Route::get('/enums', function() {
+    dispatch(new \App\Jobs\EnumJob());
+
+    return null;
+});
+
+
+Route::get('/readonly', function() {
+    dispatch(new \App\Jobs\ReadonlyJob());
+
+    return null;
+});
+
+Route::get('/callable', function() {
+    dispatch(new \App\Jobs\FirstClassCallableJob());
+
+    return null;
+});
+
+Route::get('/intersection', function() {
+    dispatch(new \App\Jobs\PureIntersectionTypesJob());
+
+    return null;
+});
